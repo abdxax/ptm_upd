@@ -141,7 +141,7 @@ $projects=$mang->getProject($_SESSION['email']);
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body text-center">
-                                <a href="addUesr.php" class="btn btn-info">Add New User</a>
+                                <a href="users.php" class="btn btn-info">Add New User</a>
                             </div>
                         </div>
                     </div>
@@ -149,7 +149,7 @@ $projects=$mang->getProject($_SESSION['email']);
                     <div class="col-4">
                         <div class="card">
                             <div class="card-body text-center">
-                                <a href="addDepart.php" class="btn btn-info">Add New Departemnt</a>
+                                <a href="depar.php" class="btn btn-info">Add New Departemnt</a>
                             </div>
                         </div>
                     </div>

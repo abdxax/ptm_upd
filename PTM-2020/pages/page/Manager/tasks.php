@@ -195,6 +195,12 @@ $tasks=$mang->getTasks($_GET['id'])
                             <th style="width: 30%">
                                 Employee Name
                             </th>
+                            <th style="width: 30%">
+                               Date Line
+                            </th>
+                            <th style="width: 30%">
+                                status
+                            </th>
 
                             
                             <th style="width: 20%">
@@ -221,14 +227,15 @@ $tasks=$mang->getTasks($_GET['id'])
                             <td>
                                '.$mang->employeeNmae($task['employee_email']).'
                             </td>
+                            <td>'.$task['date_line'].'</td>
                           
                             <td class="project-state">';
                             if($task['status']=="Success") {
 
                                 echo' <span class="badge badge-success" > '.$task['status'].' </span >';
                             }
-                            else if($task['status']=="On Hold"){
-                                echo' <span class="badge badge-warning" > '.$task['status'].' </span >';
+                            else if($task['status']=="On Hold"||$task['status']==''){
+                                echo' <span class="badge badge-warning" > On Hold </span >';
                             }
                            echo '</td>
                             <td class="project-actions text-right">

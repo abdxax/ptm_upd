@@ -190,8 +190,8 @@ if(isset($_POST['sub'])){
                                   <form method="post">
                                <div class="form-group">
                                    <select name="status" class="form-control">
-                                       <option>Accomplished</option>
-                                       <option> In progress</option>
+                                       <option>Success</option>
+                                       <option> On Hold</option>
                                    </select>
                                </div>
                                 <input type="submit" value="Update" name="sub" class="btn btn-primary">

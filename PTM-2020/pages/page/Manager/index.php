@@ -234,13 +234,14 @@ $projects=$mang->getProject($_SESSION['email']);
                                     '.$mang->projectProg($pro['id']).' Complete
                                 </small>
                             </td>
+                            <rd>'.$pro['date_line'].'</rd>
                             <td class="project-state">';
                             if($pro['status']=="Success") {
 
                               echo' <span class="badge badge-success" > '.$pro['status'].' </span >';
                                 }
-                            else if($pro['status']=="On Hold"){
-                                echo' <span class="badge badge-warning" > '.$pro['status'].' </span >';
+                            else if($pro['status']=="On Hold"||$pro['status']==''){
+                                echo' <span class="badge badge-warning" > On Hold </span >';
                             }
                            echo ' </td>
                             <td class="project-actions text-right">

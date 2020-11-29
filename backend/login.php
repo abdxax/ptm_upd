@@ -13,7 +13,7 @@ class login extends DB{
      if($sql->execute(array($email,$pass,$role))){
          $sql_info=$this->login->prepare("INSERT INTO info (email,name,phone,rank,depart_id) VALUES(?,?,?,?,?)");
          if($sql_info->execute(array($email,$name,$phone,"",$depart))){
-             return "";
+            header("location:users.php?msg=done_user");
          }
      }
 
@@ -38,7 +38,7 @@ class login extends DB{
     public function newDepart($depart){
         $sql=$this->login->prepare("INSERT INTO department (depart_name) VALUES (?)");
         if($sql->execute(array($depart))){
-            return "";
+           header("location:depar.php?msg=done_dep");
         }
 
 

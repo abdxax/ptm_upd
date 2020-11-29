@@ -3,28 +3,23 @@ require "../../../../backend/login.php";
 $Us=new login('root',"");
 $depart=$Us->getDepa();
 $role=$Us->getrole();
-$user=$Us->getUser();
+$depart=$Us->getDepa();
 
-if(isset($_POST['sub'])){
-    $email=strip_tags($_POST['email']);
-    $pass=strip_tags($_POST['pass']);
-    $name=strip_tags($_POST['name']);
-    $role_=$_POST['role'];
-    $depa=$_POST['depa'];
-    $phone=strip_tags($_POST['phone']);
-    $pas2=sha1($pass);
-    $Us->newUser($email,$pas2,$name,$phone,$depa,$role_);
+if(isset($_POST['sub'])) {
+    $depart = strip_tags($_POST['Depart']);
+    $Us->newDepart($depart);
 }
 ?>
 
-<!-- -- -- --- -- -- -- -- -- -->
 
+
+<!----- -------- --------->
 <!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>PTM| Admin</title>
+    <title>PTM| Add department</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -139,13 +134,10 @@ if(isset($_POST['sub'])){
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add New User</h1>
+                        <h1> Department </h1>
                     </div>
                     <div class="col-sm-6">
-                        <ol class="breadcrumb float-sm-right">
-                           
-                            <li class="breadcrumb-item active"></li>
-                        </ol>
+
                     </div>
                 </div>
             </div><!-- /.container-fluid -->
@@ -157,58 +149,11 @@ if(isset($_POST['sub'])){
                 <div class="row">
 
                     <div class="col-8">
-                        <form method="POST">
-                            <div class="col-8 ">
-                                <div class="form-group">
-                                    <input type="email" name="email" class="form-control" placeholder="E-mail">
-                                </div>
-                            </div>
+                       <!-- <form method="POST">
 
                             <div class="col-8 ">
                                 <div class="form-group">
-                                    <input type="password" name="pass" class="form-control" placeholder="Password">
-                                </div>
-                            </div>
-
-                            <div class="col-8 ">
-                                <div class="form-group">
-                                    <input type="text" name="name" class="form-control" placeholder="Name">
-                                </div>
-                            </div>
-
-                            <div class="col-8 ">
-                                <div class="form-group">
-                                    <select name="role" class="form-control">
-                                        <?php
-                                        foreach ($role as $r){
-                                            echo '
-                             <option value="'.$r['id'].'">'.$r['role_name'].'</option>
-                             ';
-                                        }
-                                        ?>
-
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-8 ">
-                                <div class="form-group">
-                                    <select name="depa" class="form-control">
-                                        <?php
-                                        foreach ($depart as $r){
-                                            echo '
-                             <option value="'.$r['id'].'">'.$r['depart_name'].'</option>
-                             ';
-                                        }
-                                        ?>
-
-                                    </select>
-                                </div>
-                            </div>
-
-                            <div class="col-8 ">
-                                <div class="form-group">
-                                    <input type="text" name="phone" class="form-control" placeholder="Phoen">
+                                    <input type="text" name="Depart" class="form-control" placeholder="Department ">
                                 </div>
                             </div>
                             <div class="col-8 ">
@@ -217,12 +162,40 @@ if(isset($_POST['sub'])){
                                 </div>
                             </div>
 
-                        </form>
+                        </form>-->
+                        <a href="addDepart.php" class="btn btn-primary">Add New Department </a>
                     </div>
-
-                    <div class="col-11">
-
-                    </div>
+                    <?php
+                    if(isset($_GET['msg'])){
+                        echo '
+                            <div class="col-12 alert alert-success text-center">
+                            Success Add New Department 
+</div>
+                            ';
+                    }
+                    ?>
+                    <table class="table">
+                        <thead>
+                        <tr>
+                            <th>ON</th>
+                            <th>Department Name</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <?php
+                        $count =1;
+                        foreach ($depart as $d){
+                            echo '
+                            <tr>
+                            <td>'.$count.'</td>
+                            <td>'.$d['depart_name'].'</td>
+</tr>
+                            ';
+                            $count++;
+                        }
+                        ?>
+                        </tbody>
+                    </table>
 
 
                 </div>
@@ -231,8 +204,6 @@ if(isset($_POST['sub'])){
         <!-- /.content -->
     </div>
     <!-- /.content-wrapper -->
-
-
 
     <footer class="main-footer">
         <div class="float-right d-none d-sm-block">

@@ -174,6 +174,9 @@ $tasks = $user->getTask($_SESSION['email']);
                             <th style="width: 8%" class="text-center">
                                 Status
                             </th>
+                            <th>
+                                Date Line
+                            </th>
                             <th style="width: 20%">
                             </th>
                         </tr>
@@ -202,15 +205,17 @@ $tasks = $user->getTask($_SESSION['email']);
                                 '.$task['task_name'].'
                                
                             </td>
+                         
                             <td class="project-state">';
-                            if($user->getTaskStatus($task['id_'])=="Accomplished") {
+                            if($user->getTaskStatus($task['id_'])=="Success") {
 
                                 echo' <span class="badge badge-success" > '.$user->getTaskStatus($task['id_']).' </span >';
                             }
-                            else if($user->getTaskStatus($task['id_'])=="In progress"){
+                            else if($user->getTaskStatus($task['id_'])=="On Hold"){
                                 echo' <span class="badge badge-warning" > '.$user->getTaskStatus($task['id_']).' </span >';
                             }
                            echo' </td>
+  <td>'.$task['date_line'].'</td>
                             <td class="project-actions text-right">
                                 <a class="btn btn-primary btn-sm" href="view.php?id='.$task['id_'].'">
                                     <i class="fas fa-folder">
@@ -219,6 +224,8 @@ $tasks = $user->getTask($_SESSION['email']);
                                 </a>
 
                             </td>
+                            
+                              
                         </tr>
 
                                   

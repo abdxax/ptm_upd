@@ -139,11 +139,11 @@ if(isset($_POST['sub'])){
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1>Add New User</h1>
+                        <h1>Users</h1>
                     </div>
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                           
+
                             <li class="breadcrumb-item active"></li>
                         </ol>
                     </div>
@@ -155,8 +155,12 @@ if(isset($_POST['sub'])){
         <section>
             <div class="container">
                 <div class="row">
+                    <div class="text-center">
+                        <a href="addUesr.php" class="btn btn-info">Add New User </a>
 
-                    <div class="col-8">
+                    </div>
+
+                    <!--<div class="col-8">
                         <form method="POST">
                             <div class="col-8 ">
                                 <div class="form-group">
@@ -186,7 +190,7 @@ if(isset($_POST['sub'])){
                              ';
                                         }
                                         ?>
-
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -201,7 +205,7 @@ if(isset($_POST['sub'])){
                              ';
                                         }
                                         ?>
-
+                                        ?>
                                     </select>
                                 </div>
                             </div>
@@ -218,10 +222,43 @@ if(isset($_POST['sub'])){
                             </div>
 
                         </form>
-                    </div>
+                    </div>-->
 
                     <div class="col-11">
-
+                        <?php
+                        if(isset($_GET['msg'])){
+                            echo '
+                            <div class="alert alert-success text-center">
+                            Success Add New User 
+</div>
+                            ';
+                        }
+                        ?>
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Email</th>
+                                <th>Phone</th>
+                                <th>Delete</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <?php
+                            foreach ($user as $u){
+                                echo '
+                                <tr>
+                                <td>'.$u['name'].'</td>
+                                  <td>'.$u['email'].'</td>
+                                    <td>'.$u['phone'].'</td>
+                                      <td><a href="deleteuser.php?id='.$u['email'].'" class="btn btn-danger">Delete</a></td>
+                                
+</tr>
+                                ';
+                            }
+                            ?>
+                            </tbody>
+                        </table>
                     </div>
 
 

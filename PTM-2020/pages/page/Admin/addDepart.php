@@ -165,28 +165,7 @@ if(isset($_POST['sub'])) {
                         </form>
                     </div>
 
-                    <table class="table">
-                        <thead>
-                        <tr>
-                            <th>ON</th>
-                            <th>Department Name</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <?php
-                        $count =1;
-                        foreach ($depart as $d){
-                            echo '
-                            <tr>
-                            <td>'.$count.'</td>
-                            <td>'.$d['depart_name'].'</td>
-</tr>
-                            ';
-                            $count++;
-                        }
-                        ?>
-                        </tbody>
-                    </table>
+
 
 
                 </div>
